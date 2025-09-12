@@ -1,0 +1,22 @@
+// @font-face {
+//   font-family: 'Couture';
+//   src: url('../fonts/Couture.woff2') format('woff2'),
+//        url('../fonts/Couture.woff') format('woff'),
+//        url('../fonts/Couture.ttf') format('truetype'),
+//        url('../fonts/Couture.svg#Couture') format('svg');
+// }
+
+// @include font-face('A-OTF-Midashi-Go-MB31-Pro-MB31','../fonts/A-OTF-Midashi-Go-MB31-Pro-MB31', normal, normal, swap);
+
+// Noto Serif JP（Google Fonts）
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+// Font Device
+$yumin: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+$gothic: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", 'Hiragino Kaku Gothic Pro', "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', Arial, sans-serif;
+$yugothic_medium: "游ゴシック Medium", "Yu Gothic Medium", 游ゴシック体, YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Sans", メイリオ, Meiryo, sans-serif;
+$hiragino: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "HiraKakuPro-W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", Arial, Helvetica, sans-serif;
+
+
+// Noto Sans JP
+$noto-san: "Noto Sans JP", sans-serif;

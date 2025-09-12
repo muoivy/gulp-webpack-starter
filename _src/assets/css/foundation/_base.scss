@@ -1,0 +1,158 @@
+@use "./init" as *;
+
+// -----------------------------------------------------------------
+// Base
+// -----------------------------------------------------------------
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --vw: 100vw;
+  --vh: 1vh;
+}
+
+html {
+  font-size: 62.5%;
+  &.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+  }
+  @media only screen and (max-width: 1280px) {
+    // font-size: calc(var(--vw)/128);  // Desgin PC width 2000px/10
+  }
+  @include mq(sp) {
+    font-size: calc(var(--vw)/37.5);
+  }
+}
+
+body {
+  background: #fff;
+  font-family: $noto_san;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: #333;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  @include mq(sp) {
+    font-size: vw(16);
+  }
+}
+
+a {
+  transition: all 0.3s;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+picture {
+  display: block;
+}
+
+button {
+  transition: all .3s ease-out;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  border-radius: 0;
+  transition: all .3s ease-out;
+}
+
+textarea {
+  outline: none;
+  resize: vertical;
+  -webkit-appearance: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999999;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #999999;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #999999;
+}
+
+button, a, pre, input, select, button, textarea, [role=button] {
+  &:not(:disabled) {
+    &:focus-visible {
+      outline: 5px auto Highlight;
+      outline: -webkit-focus-ring-color auto 1px;
+    }
+  }
+}
+
+
+
+#wrapper {
+  position: relative;
+  // overflow: hidden;
+}
+
+.l-inner {
+  position: relative;
+  width: 1080px;
+  margin: 0 auto;
+  @media only screen and (max-width: 1280px) {
+    width: 108rem;
+  }
+  @include mq(sp) {
+    padding: 0 vw(24);
+    width: auto;
+  }
+}
+
+@include mq(pc) {
+	.is-sp {
+		display: none !important;
+	}
+}
+
+@include mq(sp) {
+	.is-pc {
+		display: none !important;
+	}
+}
+
+.is-none {
+  display: none !important;
+}
+
+.u-img-fit {
+  font-family: "object-fit: cover;";
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

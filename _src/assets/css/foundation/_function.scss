@@ -1,0 +1,32 @@
+$design_width_pc: 1280;
+$design_height_pc: 840;
+$design_width_sp: 375;
+$design_height_sp: 812;
+$root_font_size: 16;
+
+// Set vw with viewport PC
+@function vw_pc($design_width_psd) {
+  $vw: calc($design_width_psd / $design_width_pc) * 100vw;
+  @return #{$vw};
+}
+
+@function vh_pc($design_height_psd) {
+  $vh: calc($design_height_psd / $design_height_pc) * 100vh;
+  @return #{$vh};
+}
+
+// Set vw with viewport SP
+@function vw($design_width_psd) {
+  $vw: calc($design_width_psd / $design_width_sp) * 100vw;
+  @return #{$vw};
+}
+
+@function vh($design_height_psd) {
+  $vh: calc($design_height_psd / $design_height_sp) * 100vh;
+  @return #{$vh};
+}
+
+@function font_rem($font_size_px) {
+  $font_rem: calc($font_size-px / $root_font_size) * 1rem;
+  @return #{$font_rem};
+}

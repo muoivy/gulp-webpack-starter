@@ -1,0 +1,168 @@
+@use "sass:map";
+@use "sass:string";
+
+// font ---------------------------------------------------------------------------
+@mixin font_size($font_size, $font_weight: null, $line_height: null, $letter_spacing: null) {
+  font-size: $font_size * 1px;
+  // font-size: $font-size * 0.1rem;
+  // example using rem values and 62.5% font-size so 1rem = 10px
+
+  @if $font_weight != null {
+    font-weight: $font_weight;
+  }
+
+  @if $line_height != null {
+    line-height: calc($line_height / $font_size);
+  }
+
+  @if $letter_spacing != null {
+    letter-spacing: calc($letter_spacing / 1000) * 1em;
+  }
+}
+
+@mixin font_size_sp($font_size, $font_weight: null, $line_height: null, $letter_spacing: null) {
+  font-size: calc($font_size / $design_width_sp) * 100vw;
+
+  @if $font_weight != null {
+    font-weight: $font_weight;
+  }
+
+  @if $line_height != null {
+    line-height: calc($line_height / $font_size);
+  }
+
+  @if $letter_spacing != null {
+    letter-spacing: calc($letter_spacing / 1000) * 1em;
+  }
+}
+
+@mixin fz($font-size, $line-height) {
+  font-size: calc($font-size / 10)+rem;
+
+  @if $line-height !=null {
+    line-height: calc($line-height / $font-size);
+  }
+}
+
+
+// breakpoint ---------------------------------------------------------------------------
+$mq-breakpoints: (
+  'xs': 321px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  // 'xxl': 1920px,
+) !default;
+
+@mixin mq($breakpoint: md, $rule: min) {
+  @if $breakpoint == pc {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == sp {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else {
+    $breakpoint: map.get($mq-breakpoints, $breakpoint);
+    @if $rule == max {
+      $breakpoint: $breakpoint - 1px;
+    }
+    @media screen and (#{$rule}-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Flexbox Toolkit ---------------------------------------------------------------------------
+@mixin flex($direction: null, $align: null, $justify: null, $wrap: null) {
+  display: flex;
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+
+// Flex Column
+@mixin flex-column {
+  @include flex(column);
+}
+
+// Flex Center
+@mixin flex-center {
+  @include flex(null, center, center);
+}
+
+// Flex Row
+@mixin flex-row {
+  @include flex(row);
+}
+
+// Flex Wrap
+@mixin flex-wrap {
+  @include flex(null, null, null, wrap);
+}
+
+// Flex Space Between
+@mixin flex-space-between {
+  @include flex(null, null, space-between);
+}
+
+// Flex Align Start/End
+@mixin flex-align-start {
+  @include flex(null, flex-start);
+}
+
+@mixin flex-align-end {
+  @include flex(null, flex-end);
+}
+
+// Flex Align Self
+@mixin flex-align-self-center {
+  align-self: center;
+}
+
+// Background ---------------------------------------------------------------------------
+@mixin background-image($url, $background-size: contain, $background-position: center, $background-repeat: no-repeat, $background-attachment: null, $background-origin: null) {
+  background-image: url(#{$url});
+
+  // Set giá trị mặc định cho background-size
+  background-size: if($background-size == null, contain, $background-size);
+
+  // Set giá trị mặc định cho background-position
+  background-position: if($background-position == null, center, $background-position);
+
+  // Truyền giá trị cho background-repeat
+  background-repeat: if($background-repeat == null, no-repeat, $background-repeat);
+
+  // Nếu có giá trị cho background-attachment thì áp dụng
+  @if $background-attachment != null {
+    background-attachment: $background-attachment;
+  }
+
+  // Nếu có giá trị cho background-origin thì áp dụng
+  @if $background-origin != null {
+    background-origin: $background-origin;
+  }
+}
+
+// Font face ---------------------------------------------------------------------------
+@mixin font-face($font-name, $path, $weight: normal, $style: normal, $display: swap) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($path+'.woff') format('woff'),
+         url($path+'.woff2') format('woff2');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: $display;
+  }
+}
