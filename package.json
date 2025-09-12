@@ -1,23 +1,27 @@
 {
-  "name": "html_blank",
+  "name": "gulp-webpack-starter",
   "version": "1.0.0",
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "description": "Gulp Webpack Starter - fast static website builder. The starter uses gulp toolkit and webpack bundler.",
   "main": "gulpfile.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/muoivy/gulp-webpack-starter.git"
-  },
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
     "convertImg": "gulp convertImage"
   },
-  "author": "Tran Muoi Vy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muoivy/gulp-webpack-starter.git"
+  },
+  "author": "muoivy",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muoivy/gulp-webpack-starter/issues"
+  },
+  "homepage": "https://github.com/muoivy/gulp-webpack-starter#readme",
   "devDependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
-    "@eslint/js": "^9.34.0",
+    "@eslint/js": "^9.35.0",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",
     "browser-sync": "^3.0.4",
@@ -25,9 +29,9 @@
     "cross-env": "^10.0.0",
     "cssnano": "^7.1.1",
     "del": "^8.0.0",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "eslint-webpack-plugin": "^5.0.2",
-    "globals": "^16.3.0",
+    "globals": "^16.4.0",
     "gulp": "^5.0.1",
     "gulp-connect-php": "^1.0.3",
     "gulp-dart-sass": "^1.1.0",
@@ -41,18 +45,19 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-ssi": "^0.1.5",
-    "gulp-webp": "^5.0.0",
+    "gulp-webp": "^5.1.0",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
-    "sass": "^1.91.0",
+    "sass": "^1.92.1",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-stream": "^7.0.0"
   },
-  "engines": {
-    "node": ">=22.16.0"
-  },
   "dependencies": {
     "jquery": "^3.7.1"
+  },
+  "engines": {
+    "node": ">=22.16.0",
+    "npm": ">=10.9.2"
   }
 }
