@@ -1,6 +1,6 @@
 const setInitialState = (tab, panel, isSelected) => {
   tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-  tab.tabIndex = isSelected ? 0 : -1;
+  tab.tabIndex = 0;
   tab.classList.toggle('is-active', isSelected);
 
   if (panel) {
@@ -32,8 +32,8 @@ const focusTab = (tabs, index) => {
   const totalTabs = tabs.length;
   const nextIndex = (index + totalTabs) % totalTabs;
 
-  tabs.forEach((currentTab, tabIndex) => {
-    currentTab.tabIndex = tabIndex === nextIndex ? 0 : -1;
+  tabs.forEach((currentTab) => {
+    currentTab.tabIndex = 0;
   });
 
   tabs[nextIndex].focus();
@@ -89,6 +89,12 @@ export const initTabs = () => {
         } else if (key === 'End') {
           event.preventDefault();
           focusTab(tabs, tabs.length - 1);
+        } else if (key === 'Tab') {
+          const isSelected = tab.getAttribute('aria-selected') === 'true';
+          if (isSelected) {
+            event.preventDefault();
+            panels[currentIndex]?.focus();
+          }
         } else if (key === 'Enter' || key === ' ') {
           event.preventDefault();
           activateTab(tab, tabs, panels);
