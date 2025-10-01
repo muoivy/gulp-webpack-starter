@@ -77,6 +77,36 @@
         </div>
       </section>
 
+      <section id="sec-tabs" class="sec-tabs">
+        <h2>DEMO TABS</h2>
+        <div class="c-tabs js-tabs">
+          <div class="c-tabs_tablist" role="tablist" aria-label="Tab ví dụ">
+            <button type="button" role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1" class="c-tabs_tab is-active">
+              Giới thiệu
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2" class="c-tabs_tab">
+              Tính năng
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3" class="c-tabs_tab">
+              Liên hệ
+            </button>
+          </div>
+          <div id="tab-panel-1" class="c-tabs_panel" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+            <p>Đây là nội dung giới thiệu cho ví dụ tab. Sử dụng bàn phím để di chuyển giữa các tab.</p>
+          </div>
+          <div id="tab-panel-2" class="c-tabs_panel" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+            <ul>
+              <li>Hỗ trợ điều hướng bằng bàn phím với phím mũi tên, Home, End.</li>
+              <li>Tự động cập nhật aria-selected và tabIndex.</li>
+              <li>Ẩn/hiện nội dung bằng thuộc tính <code>hidden</code>.</li>
+            </ul>
+          </div>
+          <div id="tab-panel-3" class="c-tabs_panel" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
+            <p>Liên hệ với chúng tôi qua email <a href="mailto:info@example.com">info@example.com</a> để biết thêm chi tiết.</p>
+          </div>
+        </div>
+      </section>
+
       <section id="sec02" class="sec02">
         <h2>DEMO MATCH HEIGHT</h2>
         <div class="c-card">
