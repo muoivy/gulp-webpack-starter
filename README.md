@@ -2,8 +2,8 @@
 Gulp Webpack Starter - fast static website builder. The starter uses gulp toolkit and webpack bundler. 
 
 ## Import sidebar via CSV file
-- CSVファイルでサイドバーに書籍の目次をインポートするためのコマンド
 ```bash
+# CSVファイルでサイドバーに書籍の目次をインポートするためのコマンド
 ./vendor/bin/sail artisan import:sidebar-csv
 ```
 - CSVのパス: `database/seeders/categories/dataSidebar.csv`
